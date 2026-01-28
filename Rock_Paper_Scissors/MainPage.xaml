@@ -1,36 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Rock_Paper_Scissors.MainPage">
+<ContentPage
+    x:Class="Rock_Paper_Scissors.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a submarine number ten" />
+    <Grid BackgroundColor="#393D3F">
 
-            <Label
-                Text="Hello, World!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+        <!--  TODO: check if the height is good for all the rows  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--  TODO: check if the width is good for all the columns  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
+        <Label
+            FontAttributes="Bold"
+            FontSize="Title"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            Text="Rock * Paper * Scissors"
+            TextColor="#E76D83"
+            VerticalOptions="Center"
+            x:Name="GameTitle" />
+        <Label
+            FontSize="17"
+            Grid.Column="0"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            Text="Player"
+            TextColor="#D5BBB1"
+            x:Name="PlayerLabel" />
+        <Label
+            FontSize="17"
+            Grid.Column="1"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            Text="System"
+            TextColor="#D5BBB1"
+            x:Name="SystemLabel" />
+        <Image
+            Aspect="Fill"
+            Grid.Column="0"
+            Grid.Row="2"
+            Source="question_mark.png"
+            VerticalOptions="Center"
+            x:Name="PlayerChose" />
+        <Image
+            Aspect="Fill"
+            Grid.Column="1"
+            Grid.Row="2"
+            Source="question_mark.png"
+            VerticalOptions="Center"
+            x:Name="SystemChose" />
+        <HorizontalStackLayout
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            VerticalOptions="End">
+            <ImageButton
+                BackgroundColor="#E76D83"
+                Clicked="onImageButtonClick"
+                HeightRequest="10"
+                Margin="10"
+                Source="rock_gesture.png"
+                WidthRequest="10"
+                x:Name="RockClicked" />
+            <ImageButton
+                BackgroundColor="#E76D83"
+                Clicked="onImageButtonClick"
+                HeightRequest="10"
+                Margin="10"
+                Source="paper_gesture.png"
+                WidthRequest="10"
+                x:Name="PaperClicked" />
+            <ImageButton
+                BackgroundColor="#E76D83"
+                Clicked="onImageButtonClick"
+                HeightRequest="10"
+                Margin="10"
+                Source="scissors_gesture.png"
+                WidthRequest="10"
+                x:Name="ScissorsClicked" />
+        </HorizontalStackLayout>
+        <Label
+            FontSize="17"
+            Grid.Column="0"
+            Grid.Row="4"
+            HorizontalOptions="Center"
+            Text="Player Score: 0"
+            TextColor="#D5BBB1"
+            VerticalOptions="Center"
+            x:Name="PlayerScore" />
+        <Label
+            FontSize="17"
+            Grid.Column="1"
+            Grid.Row="4"
+            HorizontalOptions="Center"
+            Text="System Score: 0"
+            TextColor="#D5BBB1"
+            VerticalOptions="Center"
+            x:Name="SystemScore" />
+        <Button
+            BackgroundColor="#E76D83"
+            FontSize="17"
+            Grid.ColumnSpan="2"
+            Grid.Row="5"
+            HorizontalOptions="Center"
+            Text="New Game"
+            TextColor="#393D3F"
+            VerticalOptions="Center"
+            x:Name="NewGame" />
+    </Grid>
 
 </ContentPage>
