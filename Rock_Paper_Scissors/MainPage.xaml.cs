@@ -88,7 +88,7 @@ public partial class MainPage : ContentPage
     {
         if (_playerScore == 3)
         {
-            DisplayAlert("Game Over", "You Win!", "OK");
+            DisplayAlertAsync("Game Over", "You Win!", "OK");
             NewGame.IsEnabled = true;
             RockClicked.IsEnabled = false;
             PaperClicked.IsEnabled = false;
@@ -96,12 +96,28 @@ public partial class MainPage : ContentPage
         }
         else if (_systemScore == 3)
         {
-            DisplayAlert("Game Over", "You Lose!", "OK");
+            DisplayAlertAsync("Game Over", "You Lose!", "OK");
             NewGame.IsEnabled = true;
             RockClicked.IsEnabled = false;
             PaperClicked.IsEnabled = false;
             ScissorsClicked.IsEnabled = false;
         }
+    }
+
+    void OnNewGameClick(object sender, EventArgs e)
+    {
+        RockClicked.IsEnabled = true;
+        PaperClicked.IsEnabled = true;
+        ScissorsClicked.IsEnabled = true;
+        NewGame.IsEnabled = false;
+        _systemScore=0;
+        SystemScore.Text = $"System Score: {_systemScore.ToString()}";
+        _playerScore = 0;
+        PlayerScore.Text = $"Player Score: {_playerScore.ToString()}";
+        PlayerChose.Source = "question_mark.png";
+        SystemChose.Source = "question_mark.png";
+
+
     }
     
     
