@@ -50,14 +50,14 @@
             TextColor="#D5BBB1"
             x:Name="SystemLabel" />
         <Image
-            Aspect="Fill"
+            Aspect="AspectFit"
             Grid.Column="0"
             Grid.Row="2"
             Source="question_mark.png"
             VerticalOptions="Center"
             x:Name="PlayerChose" />
         <Image
-            Aspect="Fill"
+            Aspect="AspectFit"
             Grid.Column="1"
             Grid.Row="2"
             Source="question_mark.png"
@@ -73,7 +73,7 @@
                 Clicked="onImageButtonClick"
                 HeightRequest="10"
                 Margin="10"
-                Source="rock_gesture.png"
+                Source="rock.png"
                 WidthRequest="10"
                 x:Name="RockClicked" />
             <ImageButton
@@ -81,7 +81,7 @@
                 Clicked="onImageButtonClick"
                 HeightRequest="10"
                 Margin="10"
-                Source="paper_gesture.png"
+                Source="paper.png"
                 WidthRequest="10"
                 x:Name="PaperClicked" />
             <ImageButton
@@ -89,7 +89,7 @@
                 Clicked="onImageButtonClick"
                 HeightRequest="10"
                 Margin="10"
-                Source="scissors_gesture.png"
+                Source="scissors.png"
                 WidthRequest="10"
                 x:Name="ScissorsClicked" />
         </HorizontalStackLayout>
