@@ -117,6 +117,7 @@
             Grid.ColumnSpan="2"
             Grid.Row="5"
             HorizontalOptions="Center"
+            IsEnabled="False"
             Text="New Game"
             TextColor="#393D3F"
             VerticalOptions="Center"

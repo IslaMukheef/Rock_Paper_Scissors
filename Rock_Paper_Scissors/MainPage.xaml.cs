@@ -14,6 +14,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        
     }
 
     // When user click their chose this function handles changing the player image to theri chose
@@ -38,7 +39,7 @@ public partial class MainPage : ContentPage
         }
         
     }
-
+// This function generates a random number for the system chose and updates the picture and return the random value
     int systemPicture()
     {
         int _systemChose;
@@ -79,7 +80,29 @@ public partial class MainPage : ContentPage
             _systemScore++;
             SystemScore.Text = $"System Score: {_systemScore.ToString()}";
         }
-        
+        GameOver();
     }
+    
+    //Ends the game when the player or the system reaches 3 points
+    void GameOver()
+    {
+        if (_playerScore == 3)
+        {
+            DisplayAlert("Game Over", "You Win!", "OK");
+            NewGame.IsEnabled = true;
+            RockClicked.IsEnabled = false;
+            PaperClicked.IsEnabled = false;
+            ScissorsClicked.IsEnabled = false;
+        }
+        else if (_systemScore == 3)
+        {
+            DisplayAlert("Game Over", "You Lose!", "OK");
+            NewGame.IsEnabled = true;
+            RockClicked.IsEnabled = false;
+            PaperClicked.IsEnabled = false;
+            ScissorsClicked.IsEnabled = false;
+        }
+    }
+    
     
 }
