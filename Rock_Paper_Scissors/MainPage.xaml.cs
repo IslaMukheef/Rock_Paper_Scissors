@@ -5,6 +5,8 @@ namespace Rock_Paper_Scissors;
 
 public partial class MainPage : ContentPage
 {
+    private int systemWinCount = 0;
+    private int playerWinCount = 0;
     private int _playerScore;
     private int _systemScore;
     private int rock = 2;
@@ -99,6 +101,12 @@ public partial class MainPage : ContentPage
             RockClicked.IsEnabled = false;
             PaperClicked.IsEnabled = false;
             ScissorsClicked.IsEnabled = false;
+            playerWinCount++;
+            if (playerWinCount >= 2)
+            {
+                DisplayAlertAsync("Match is Over", "System Gives up", "OK");
+                NewGame.IsEnabled=false;
+            }
         }
         else if (_systemScore == 3)
         {
@@ -107,6 +115,12 @@ public partial class MainPage : ContentPage
             RockClicked.IsEnabled = false;
             PaperClicked.IsEnabled = false;
             ScissorsClicked.IsEnabled = false;
+            systemWinCount++;
+            if (systemWinCount >= 2)
+            {
+                DisplayAlertAsync("Match is Over", "Give up", "OK");
+                NewGame.IsEnabled=false;
+            }
         }
     }
 
