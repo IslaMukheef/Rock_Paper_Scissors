@@ -96,7 +96,7 @@ public partial class MainPage : ContentPage
     {
         if (_playerScore == 3)
         {
-            DisplayAlertAsync("Game Over", "You Win!", "OK");
+            
             NewGame.IsEnabled = true;
             RockClicked.IsEnabled = false;
             PaperClicked.IsEnabled = false;
@@ -107,10 +107,12 @@ public partial class MainPage : ContentPage
                 DisplayAlertAsync("Match is Over", "System Gives up", "OK");
                 NewGame.IsEnabled=false;
             }
+            else
+                DisplayAlertAsync("Game Over", "You Win!", "OK");
         }
         else if (_systemScore == 3)
         {
-            DisplayAlertAsync("Game Over", "You Lose!", "OK");
+            
             NewGame.IsEnabled = true;
             RockClicked.IsEnabled = false;
             PaperClicked.IsEnabled = false;
@@ -121,6 +123,8 @@ public partial class MainPage : ContentPage
                 DisplayAlertAsync("Match is Over", "Give up", "OK");
                 NewGame.IsEnabled=false;
             }
+            else
+                DisplayAlertAsync("Game Over", "You Lose!", "OK");
         }
     }
 
