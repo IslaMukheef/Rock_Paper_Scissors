@@ -102,6 +102,7 @@ public partial class MainPage : ContentPage
             PaperClicked.IsEnabled = false;
             ScissorsClicked.IsEnabled = false;
             playerWinCount++;
+            systemWinCount =0;
             if (playerWinCount >= 2)
             {
                 DisplayAlertAsync("Match is Over", "System Gives up", "OK");
@@ -118,6 +119,7 @@ public partial class MainPage : ContentPage
             PaperClicked.IsEnabled = false;
             ScissorsClicked.IsEnabled = false;
             systemWinCount++;
+            playerWinCount = 0;
             if (systemWinCount >= 2)
             {
                 DisplayAlertAsync("Match is Over", "Give up", "OK");
