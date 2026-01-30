@@ -20,7 +20,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        pictureSwitcher();
+        pictureSwitcher(); // change the picture to different one till the player starts the game!
 
     }
 
@@ -124,6 +124,7 @@ public partial class MainPage : ContentPage
         }
     }
 
+    // Reset the game when player clicks on new game button
     void OnNewGameClick(object sender, EventArgs e)
     {
         gameStarted = false;
