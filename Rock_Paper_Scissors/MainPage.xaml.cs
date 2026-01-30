@@ -10,16 +10,22 @@ public partial class MainPage : ContentPage
     private int rock = 2;
     private int paper = 1;
     private int scissors = 3;
+    private bool gameStarted= false;
+
+
+    
     
     public MainPage()
     {
         InitializeComponent();
-        
+        pictureSwitcher();
+
     }
 
     // When user click their chose this function handles changing the player image to theri chose
     void onImageButtonClick(object sender, EventArgs e)
     {
+        gameStarted = true;
         var userChosen = (ImageButton)sender;
         
         if (userChosen == PaperClicked)
@@ -106,6 +112,8 @@ public partial class MainPage : ContentPage
 
     void OnNewGameClick(object sender, EventArgs e)
     {
+        gameStarted = false;
+        pictureSwitcher();
         RockClicked.IsEnabled = true;
         PaperClicked.IsEnabled = true;
         ScissorsClicked.IsEnabled = true;
@@ -114,11 +122,23 @@ public partial class MainPage : ContentPage
         SystemScore.Text = $"System Score: {_systemScore.ToString()}";
         _playerScore = 0;
         PlayerScore.Text = $"Player Score: {_playerScore.ToString()}";
-        PlayerChose.Source = "question_mark.png";
-        SystemChose.Source = "question_mark.png";
-
-
     }
+
     
+    //https://stackoverflow.com/questions/18804394/how-to-wait-in-loop-without-blocking-ui-in-c-sharp
+    //https://www.c-sharpcorner.com/article/async-and-await-in-c-sharp/
+    private async Task pictureSwitcher()
+    {
+            while (!gameStarted)
+            {
+                Random random = new Random();
+                int player = random.Next(0,5);
+                int system = random.Next(0,5);
+                PlayerChose.Source = $"question_mark{player}.png";
+                SystemChose.Source = $"question_mark{system}.png";
+                await Task.Delay(1000);
+                
+            }
+    }
     
 }
